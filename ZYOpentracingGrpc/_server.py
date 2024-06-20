@@ -5,7 +5,7 @@ import logging
 import re
 
 import grpc
-import grpcext
+from ZYOpentracingGrpc import grpcext
 from ZYOpentracingGrpc import ActiveSpanSource
 from ZYOpentracingGrpc._utilities import get_method_type, get_deadline_millis,\
     log_or_wrap_request_or_iterator, RpcInfo

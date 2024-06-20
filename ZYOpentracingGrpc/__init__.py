@@ -84,7 +84,7 @@ def open_tracing_server_interceptor(tracer,
   Returns:
     A service-side interceptor object.
   """
-    import _server
+    from ZYOpentracingGrpc import _server
     return _server.OpenTracingServerInterceptor(tracer, log_payloads,
                                                 span_decorator)
 
