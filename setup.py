@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='ZYOpentracingGrpcio',
-      version='1.3',
+      version='1.5',
       description='Python OpenTracing Extensions for gRPC',
       author='LightStep',
       license='',
