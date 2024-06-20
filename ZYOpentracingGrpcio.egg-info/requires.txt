@@ -1,3 +1,0 @@
-opentracing>=2.4.0
-grpcio>=1.63.0
-six>=1.16.0
