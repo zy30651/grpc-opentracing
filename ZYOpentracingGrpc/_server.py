@@ -54,17 +54,15 @@ class _OpenTracingServicerContext(grpc.ServicerContext, ActiveSpanSource):
     def set_trailing_metadata(self, *args, **kwargs):
         return self._servicer_context.set_trailing_metadata(*args, **kwargs)
 
-    """
-    abort  abort_with_status 方法不实现报错；简单实现
-    """
+    def abort(self, *args, **kwargs):
+        if not hasattr(self._servicer_context, "abort"):
+            raise RuntimeError("abort() is not supported with installed version")
+        return self._servicer_context.abort(*args, **kwargs)
 
-    def abort(self, code, details):
-        print("abort", code, details)
-        raise Exception()
-
-    def abort_with_status(self, status):
-        print("abort_with_status", status)
-        raise Exception()
+    def abort_with_status(self, *args, **kwargs):
+        if not hasattr(self._servicer_context, "abort_with_status"):
+            raise RuntimeError("abort_with_status() is not supported with installed version")
+        return self._servicer_context.abort_with_status(*args, **kwargs)
 
     def set_code(self, code):
         self.code = code
